@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uday Pasunuri | Data Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--primary);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-stats {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat {
+            margin-bottom: 1.5rem;
+        }
+
+        .stat h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: var(--secondary);
+            border-radius: 5px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-category h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 2;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .contact-card h3 {
+            margin-top: 0;
+        }
+
+        .contact-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        button:hover {
+            background-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            line-height: 40px;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                padding: 0;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+            
+            form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full {
+                grid-column: 1;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container hero">
+            <div class="hero-text">
+                <h1>Uday Pasunuri</h1>
+                <h2>Data Analyst</h2>
+                <p class="tagline">Transforming complex data into actionable insights for business growth</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+            <div class="hero-image">
+                <div class="profile-img" style="background-color: #3498db; display: flex; align-items: center; justify-content: center;">
+                    <span style="color: white; font-size: 4rem;">UP</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Uday Pasunuri</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Results-driven Data Analyst with 3+ years of experience in Power BI, SQL, and building customer-facing reports tailored to business needs. Skilled in creating interactive dashboards and visualizations to present clear insights that drive decision-making.</p>
+                    <p>Proficient in writing and optimizing SQL queries to extract, manipulate, and analyze large datasets for reporting and analysis. Identifies process improvement opportunities through in-depth reporting, trend analysis, and data-driven recommendations.</p>
+                    <p>Excellent communicator able to present complex findings using simple visuals and explain them to non-technical users. Experienced in training users on Power BI, enhancing organization-wide reporting and self-service BI capabilities.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h4>Data Analysis</h4>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <h4>Data Visualization</h4>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <h4>SQL</h4>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <h4>Python</h4>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Data Analysis & Visualization</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-chart-bar"></i> Power BI</li>
+                        <li><i class="fas fa-chart-line"></i> Tableau</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fas fa-table"></i> Excel</li>
+                        <li><i class="fas fa-search"></i> DAX</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming & Databases</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-python"></i> Python</li>
+                        <li><i class="fas fa-server"></i> Snowflake</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                        <li><i class="fas fa-bolt"></i> ETL Processes</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-microsoft"></i> Power Platform</li>
+                        <li><i class="fas fa-cloud"></i> AWS</li>
+                        <li><i class="fab fa-git"></i> Git</li>
+                        <li><i class="fas fa-code-branch"></i> Apache Airflow</li>
+                        <li><i class="fas fa-cogs"></i> Machine Learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">08/2024 - Current</span>
+                        <h3>Junior Data Analyst</h3>
+                        <h4>U.S. Bancorp — Minneapolis, Minnesota, USA</h4>
+                        <p>Designed and delivered customer-facing reports using Power BI and SQL, tailoring insights to meet executive and departmental needs. Built and maintained dynamic dashboards to visualize key financial metrics and business KPIs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">06/2021 - 05/2023</span>
+                        <h3>Data Analyst</h3>
+                        <h4>Siemens Healthineers — Hyderabad, India</h4>
+                        <p>Designed and delivered interactive dashboards using Power BI and Tableau, enabling real-time insights into medical imaging workflows, treatment outcomes, and operational performance. Developed customer-facing reports and repeatable reporting frameworks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f5f7fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3>Get in Touch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Eden Prairie, MN 55344</p>
+                        <p><i class="fas fa-phone"></i> 952-245-7312</p>
+                        <p><i class="fas fa-envelope"></i> pasunuriuday07@gmail.com</p>
+                        <p><i class="fab fa-linkedin"></i> linkedin.com/in/uday-pasunuri-a554b0223</p>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Availability</h3>
+                        <p>I'm currently open to new opportunities and projects. Feel free to reach out if you'd like to discuss how I can help with your data analysis needs.</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group full">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group full">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <div class="form-group full">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-medium-m"></i></a>
+            </div>
+            <p>&copy; 2023 Uday Pasunuri. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
